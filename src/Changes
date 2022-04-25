@@ -1,0 +1,6 @@
+Revision history for Perl extension LaunchDarkly.
+
+0.01  Fri Apr 22 16:51:17 2022
+	- original version; created by h2xs 1.23 with options
+		-g -x c-server-sdk/include/launchdarkly/client.h -x c-server-sdk/include/launchdarkly/variations.h -F '-I/home/mtirpak/install/linux/launchdarkly/c-server-sdk/c-sdk-common/include/ -I/home/mtirpak/install/linux/launchdarkly/c-server-sdk/include/ -DDOXYGEN_SHOULD_SKIP_THIS' -n LaunchDarkly
+
