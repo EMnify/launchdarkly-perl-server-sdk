@@ -7,6 +7,7 @@
 
 #include <launchdarkly/client.h>
 #include <launchdarkly/variations.h>
+#include <launchdarkly/logging.h>
 
 
 /* Global Data */
@@ -38,9 +39,19 @@ INCLUDE: const-xs.inc
 BOOT:
 {
     MY_CXT_INIT;
+    LDBasicLoggerThreadSafeInitialize();
+    LDConfigureGlobalLogger(LD_LOG_ERROR, LDBasicLoggerThreadSafe);
     LDDetailsInit(&MY_CXT.details);
 }
 
+# Set the log level, see:
+# https://github.com/launchdarkly/c-server-sdk/blob/master/c-sdk-common/include/launchdarkly/logging.h#L10-L20
+void
+LDSetLogLevel(level)
+        int level
+    CODE:
+        level = (level < LD_LOG_FATAL) ? LD_LOG_FATAL : ((level > LD_LOG_TRACE) ? LD_LOG_TRACE : level);
+        LDConfigureGlobalLogger(level, LDBasicLoggerThreadSafe);
 
 struct LDJSON *
 LDAllFlags(client, user)
