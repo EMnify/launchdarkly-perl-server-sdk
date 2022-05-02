@@ -1,0 +1,16 @@
+Source: liblaunchdarkly-perl
+Maintainer: Miklos Tirpak <miklos.tirpak@emnify.com>
+Section: perl
+Priority: optional
+Build-Depends: debhelper-compat (= 13),
+               perl:native
+Standards-Version: 4.5.1
+Homepage: https://metacpan.org/release/LaunchDarkly
+Rules-Requires-Root: no
+
+Package: liblaunchdarkly-perl
+Architecture: any
+Depends: ${misc:Depends},
+         ${shlibs:Depends}
+Description: Perl SDK for LaunchDarkly
+ See https://docs.launchdarkly.com/sdk/server-side/c-c--

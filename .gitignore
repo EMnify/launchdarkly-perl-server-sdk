@@ -13,6 +13,16 @@ src/const-c.inc
 src/const-xs.inc
 src/pm_to_blib
 
+# debian packages
+pkg/
+
+# debian package building
+debian/.debhelper/
+debian/debhelper-build-stamp
+debian/files
+debian/liblaunchdarkly-perl.substvars
+debian/liblaunchdarkly-perl/
+
 # temp files
 *.swp
 src/Makefile.old
