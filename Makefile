@@ -1,4 +1,4 @@
-PERL_SDK_DIR=src
+PERL_SDK_DIR=lib/launchdarkly
 C_SDK_DIR=c-server-sdk
 C_SDK_VER:=2.6.0
 DESTDIR:=

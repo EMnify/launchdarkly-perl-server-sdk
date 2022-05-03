@@ -1,4 +1,4 @@
-package LaunchDarkly;
+package launchdarkly::perl::server::sdk;
 
 use 5.032001;
 use strict;

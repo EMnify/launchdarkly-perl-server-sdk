@@ -1,12 +1,14 @@
+#  TODO: Build.PL or Makefile.PL ???
+
 use 5.032001;
 use ExtUtils::MakeMaker;
 # See lib/ExtUtils/MakeMaker.pm for details of how to influence
 # the contents of the Makefile that is written.
 WriteMakefile(
     NAME              => 'LaunchDarkly',
-    VERSION_FROM      => 'lib/LaunchDarkly.pm', # finds $VERSION, requires EU::MM from perl >= 5.5
+    VERSION_FROM      => 'lib/launchdarkly/perl/server/sdk.pm', # finds $VERSION, requires EU::MM from perl >= 5.5
     PREREQ_PM         => {}, # e.g., Module::Name => 1.1
-    ABSTRACT_FROM     => 'lib/LaunchDarkly.pm', # retrieve abstract from module
+    ABSTRACT_FROM     => 'lib/launchdarkly/perl/server/sdk.pm', # retrieve abstract from module
     AUTHOR            => 'Miklos Tirpak <miklos.tirpak@emnify.com>',
     #LICENSE           => 'perl',
     #Value must be from legacy list of licenses here

@@ -9,7 +9,7 @@ use strict;
 use warnings;
 
 use Test::More tests => 2;
-BEGIN { use_ok('LaunchDarkly') };
+BEGIN { use_ok('launchdarkly::perl::server::sdk') };
 
 
 my $fail = 0;

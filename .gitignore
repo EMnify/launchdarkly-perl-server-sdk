@@ -26,3 +26,4 @@ debian/liblaunchdarkly-perl/
 # temp files
 *.swp
 src/Makefile.old
+.history
