@@ -1,6 +1,6 @@
 package LaunchDarkly;
 
-use 5.032001;
+use v5.26.1;
 use strict;
 use warnings;
 use Carp;
