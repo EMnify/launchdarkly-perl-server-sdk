@@ -1,6 +1,7 @@
 PERL_SDK_DIR=src
 C_SDK_DIR=c-server-sdk
 C_SDK_VER:=2.6.0
+C_LIB_FILE=libldserverapi.so
 DESTDIR:=
 
 .PONY: perl-server-sdk
@@ -20,7 +21,8 @@ c-server-sdk:
 .PONY: install
 install:
 	make -C $(PERL_SDK_DIR) install
-	mkdir -p $(DESTDIR)/usr/share/liblaunchdarkly/ && cp $(C_SDK_DIR)/lib/libldserverapi.so $(DESTDIR)/usr/share/liblaunchdarkly/
+	cp $(C_SDK_DIR)/lib/$(C_LIB_FILE) $(DESTDIR)/lib/x86_64-linux-gnu/$(C_LIB_FILE).$(C_SDK_VER)
+	ln -s $(DESTDIR)/lib/x86_64-linux-gnu/$(C_LIB_FILE).$(C_SDK_VER) $(DESTDIR)/lib/x86_64-linux-gnu/$(C_LIB_FILE)
 
 .PONY: clean
 clean:
