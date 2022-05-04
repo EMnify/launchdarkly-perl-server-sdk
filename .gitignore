@@ -26,3 +26,8 @@ debian/liblaunchdarkly-perl/
 # temp files
 *.swp
 src/Makefile.old
+
+# Idea IDE
+.idea/*
+/.idea/launchdarkly-perl-server-sdk.iml
+/c-server-sdk
