@@ -1,5 +1,0 @@
-liblaunchdarkly-perl (2.6.0+emnify-0.0.1) unstable; urgency=low
-
-  * Initial release.
-
- -- Miklos Tirpak <miklos.tirpak@emnify.com>  Mon, 2 May 2022 15:42:57 +0200

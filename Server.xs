@@ -32,7 +32,7 @@ START_MY_CXT
     } \
     RETVAL = func(client, user, key, fallback, details); \
 
-MODULE = LaunchDarkly		PACKAGE = LaunchDarkly		
+MODULE = LaunchDarkly::Server		PACKAGE = LaunchDarkly::Server
 
 INCLUDE: const-xs.inc
 

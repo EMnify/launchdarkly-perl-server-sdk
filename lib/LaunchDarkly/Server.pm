@@ -1,4 +1,4 @@
-package launchdarkly::perl::server::sdk;
+package LaunchDarkly::Server;
 
 use 5.032001;
 use strict;
@@ -232,7 +232,7 @@ sub AUTOLOAD {
     my $constname;
     our $AUTOLOAD;
     ($constname = $AUTOLOAD) =~ s/.*:://;
-    croak "&LaunchDarkly::constant not defined" if $constname eq 'constant';
+    croak "&LaunchDarkly::Server::constant not defined" if $constname eq 'constant';
     my ($error, $val) = constant($constname);
     if ($error) { croak $error; }
     {
@@ -249,7 +249,7 @@ sub AUTOLOAD {
 }
 
 require XSLoader;
-XSLoader::load('LaunchDarkly', $VERSION);
+XSLoader::load('LaunchDarkly::Server', $VERSION);
 
 # Preloaded methods go here.
 

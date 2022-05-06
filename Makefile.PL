@@ -1,20 +1,18 @@
-#  TODO: Build.PL or Makefile.PL ???
-
 use 5.032001;
 use ExtUtils::MakeMaker;
 # See lib/ExtUtils/MakeMaker.pm for details of how to influence
 # the contents of the Makefile that is written.
 WriteMakefile(
-    NAME              => 'LaunchDarkly',
-    VERSION_FROM      => 'lib/launchdarkly/perl/server/sdk.pm', # finds $VERSION, requires EU::MM from perl >= 5.5
+    NAME              => 'LaunchDarkly::Server',
+    VERSION_FROM      => 'lib/LaunchDarkly/Server.pm', # finds $VERSION, requires EU::MM from perl >= 5.5
     PREREQ_PM         => {}, # e.g., Module::Name => 1.1
-    ABSTRACT_FROM     => 'lib/launchdarkly/perl/server/sdk.pm', # retrieve abstract from module
+    ABSTRACT_FROM     => 'lib/LaunchDarkly/Server.pm', # retrieve abstract from module
     AUTHOR            => 'Miklos Tirpak <miklos.tirpak@emnify.com>',
     #LICENSE           => 'perl',
     #Value must be from legacy list of licenses here
     #https://metacpan.org/pod/Module::Build::API
     LIBS              => ['-lpcre -lcurl -lldserverapi'],
-    DEFINE            => '-I../ -I../c-server-sdk/include',
+    DEFINE            => '-I. -I./c-server-sdk/include',
     INC               => '-I.', # e.g., '-I. -I/usr/include/other'
 	# Un-comment this if you add C files to link with later:
     #OBJECT            => 'LaunchDarkly.o',
@@ -42,7 +40,7 @@ if  (eval {require ExtUtils::Constant; 1}) {
               {name=>"LD_USER_NOT_SPECIFIED", macro=>"1"},
               {name=>"LD_WRONG_TYPE", macro=>"1"});
   ExtUtils::Constant::WriteConstants(
-                                     NAME         => 'LaunchDarkly',
+                                     NAME         => 'LaunchDarkly::Server',
                                      NAMES        => \@names,
                                      DEFAULT_TYPE => 'IV',
                                      C_FILE       => 'const-c.inc',
