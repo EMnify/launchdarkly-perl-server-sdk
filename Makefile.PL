@@ -12,10 +12,6 @@ WriteMakefile(
     #Value must be from legacy list of licenses here
     #https://metacpan.org/pod/Module::Build::API
     LIBS              => ['-lpcre -lcurl -lldserverapi'],
-    DEFINE            => '-I. -I./c-server-sdk/include',
-    INC               => '-I.', # e.g., '-I. -I/usr/include/other'
-	# Un-comment this if you add C files to link with later:
-    #OBJECT            => 'LaunchDarkly.o',
 );
 if  (eval {require ExtUtils::Constant; 1}) {
   # If you edit these definitions to change the constants used by this module,
