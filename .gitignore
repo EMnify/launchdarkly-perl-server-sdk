@@ -1,29 +1,16 @@
-# C SDK
-c-server-sdk/
-
 # Perl generated files
-src/LaunchDarkly.bs
-src/LaunchDarkly.c
-src/LaunchDarkly.o
-src/MYMETA.json
-src/MYMETA.yml
-src/Makefile
-src/blib/
-src/const-c.inc
-src/const-xs.inc
-src/pm_to_blib
-
-# debian packages
-pkg/
-
-# debian package building
-debian/.debhelper/
-debian/debhelper-build-stamp
-debian/files
-debian/liblaunchdarkly-perl.substvars
-debian/liblaunchdarkly-perl/
+Server.bs
+Server.c
+Server.o
+MYMETA.json
+MYMETA.yml
+Makefile
+blib/
+const-c.inc
+const-xs.inc
+pm_to_blib
 
 # temp files
 *.swp
-src/Makefile.old
+Makefile.old
 .history
