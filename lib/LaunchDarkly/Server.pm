@@ -1,4 +1,4 @@
-package LaunchDarkly;
+package LaunchDarkly::Server;
 
 use v5.26.1;
 use strict;
@@ -14,7 +14,7 @@ our @ISA = qw(Exporter);
 # names by default without a very good reason. Use EXPORT_OK instead.
 # Do not simply export all your public functions/methods/constants.
 
-# This allows declaration	use LaunchDarkly ':all';
+# This allows declaration	use LaunchDarkly::Server ':all';
 # If you do not need this, moving things directly into @EXPORT or @EXPORT_OK
 # will save memory.
 our %EXPORT_TAGS = ( 'all' => [ qw(
@@ -23,6 +23,13 @@ our %EXPORT_TAGS = ( 'all' => [ qw(
 	LD_ERROR
 	LD_FALLTHROUGH
 	LD_FLAG_NOT_FOUND
+	LD_LOG_CRITICAL
+	LD_LOG_DEBUG
+	LD_LOG_ERROR
+	LD_LOG_FATAL
+	LD_LOG_INFO
+	LD_LOG_TRACE
+	LD_LOG_WARNING
 	LD_MALFORMED_FLAG
 	LD_NULL_KEY
 	LD_OFF
@@ -210,6 +217,13 @@ our @EXPORT = qw(
 	LD_ERROR
 	LD_FALLTHROUGH
 	LD_FLAG_NOT_FOUND
+	LD_LOG_CRITICAL
+	LD_LOG_DEBUG
+	LD_LOG_ERROR
+	LD_LOG_FATAL
+	LD_LOG_INFO
+	LD_LOG_TRACE
+	LD_LOG_WARNING
 	LD_MALFORMED_FLAG
 	LD_NULL_KEY
 	LD_OFF
@@ -232,7 +246,7 @@ sub AUTOLOAD {
     my $constname;
     our $AUTOLOAD;
     ($constname = $AUTOLOAD) =~ s/.*:://;
-    croak "&LaunchDarkly::constant not defined" if $constname eq 'constant';
+    croak "&LaunchDarkly::Server::constant not defined" if $constname eq 'constant';
     my ($error, $val) = constant($constname);
     if ($error) { croak $error; }
     {
@@ -249,7 +263,7 @@ sub AUTOLOAD {
 }
 
 require XSLoader;
-XSLoader::load('LaunchDarkly', $VERSION);
+XSLoader::load('LaunchDarkly::Server', $VERSION);
 
 # Preloaded methods go here.
 
@@ -261,11 +275,24 @@ __END__
 
 =head1 NAME
 
-LaunchDarkly - Perl SDK for LaunchDarkly
+LaunchDarkly::Server - Perl server side SDK for LaunchDarkly
 
 =head1 SYNOPSIS
 
-  use LaunchDarkly;
+  use LaunchDarkly::Server;
+
+  my $config = LaunchDarkly::Server::LDConfigNew("my-sdk-key");
+  my $timeout = 10000;
+  my $debug = 0;
+  my $default = 0;
+  my $client = LaunchDarkly::Server::LDClientInit($config, $timeout);
+
+  my $user = LaunchDarkly::Server::LDUserNew("user123");
+  my result = LaunchDarkly::Server::LDBoolVariation($client, $user, "my-very-new-feature", $default, $debug);
+  print LaunchDarkly::Server::LDDetailsToString() unless not $debug;
+  LaunchDarkly::Server::LDUserFree($user);
+
+  LaunchDarkly::Server::LDClientClose($client);
 
 =head1 DESCRIPTION
 
@@ -282,6 +309,13 @@ None by default.
   LD_ERROR
   LD_FALLTHROUGH
   LD_FLAG_NOT_FOUND
+  LD_LOG_CRITICAL
+  LD_LOG_DEBUG
+  LD_LOG_ERROR
+  LD_LOG_FATAL
+  LD_LOG_INFO
+  LD_LOG_TRACE
+  LD_LOG_WARNING
   LD_MALFORMED_FLAG
   LD_NULL_KEY
   LD_OFF

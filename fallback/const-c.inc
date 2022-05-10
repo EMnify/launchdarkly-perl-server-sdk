@@ -21,6 +21,77 @@ typedef double NV; /* 5.6 and later define NVTYPE, and typedef NV to it.  */
 #endif
 
 static int
+constant_12 (pTHX_ const char *name, IV *iv_return) {
+  /* When generated this function returned values for the list of names given
+     here.  However, subsequent manual editing may have added or removed some.
+     LD_LOG_DEBUG LD_LOG_ERROR LD_LOG_FATAL LD_LOG_TRACE */
+  /* Offset 11 gives the best switch position.  */
+  switch (name[11]) {
+  case 'E':
+    if (memEQ(name, "LD_LOG_TRAC", 11)) {
+    /*                          E      */
+      *iv_return = LD_LOG_TRACE;
+      return PERL_constant_ISIV;
+    }
+    break;
+  case 'G':
+    if (memEQ(name, "LD_LOG_DEBU", 11)) {
+    /*                          G      */
+      *iv_return = LD_LOG_DEBUG;
+      return PERL_constant_ISIV;
+    }
+    break;
+  case 'L':
+    if (memEQ(name, "LD_LOG_FATA", 11)) {
+    /*                          L      */
+      *iv_return = LD_LOG_FATAL;
+      return PERL_constant_ISIV;
+    }
+    break;
+  case 'R':
+    if (memEQ(name, "LD_LOG_ERRO", 11)) {
+    /*                          R      */
+      *iv_return = LD_LOG_ERROR;
+      return PERL_constant_ISIV;
+    }
+    break;
+  }
+  return PERL_constant_NOTFOUND;
+}
+
+static int
+constant_14 (pTHX_ const char *name, IV *iv_return) {
+  /* When generated this function returned values for the list of names given
+     here.  However, subsequent manual editing may have added or removed some.
+     LD_FALLTHROUGH LD_LOG_WARNING LD_STORE_ERROR */
+  /* Offset 10 gives the best switch position.  */
+  switch (name[10]) {
+  case 'N':
+    if (memEQ(name, "LD_LOG_WARNING", 14)) {
+    /*                         ^          */
+      *iv_return = LD_LOG_WARNING;
+      return PERL_constant_ISIV;
+    }
+    break;
+  case 'O':
+    if (memEQ(name, "LD_FALLTHROUGH", 14)) {
+    /*                         ^          */
+      *iv_return = LD_FALLTHROUGH;
+      return PERL_constant_ISIV;
+    }
+    break;
+  case 'R':
+    if (memEQ(name, "LD_STORE_ERROR", 14)) {
+    /*                         ^          */
+      *iv_return = LD_STORE_ERROR;
+      return PERL_constant_ISIV;
+    }
+    break;
+  }
+  return PERL_constant_NOTFOUND;
+}
+
+static int
 constant (pTHX_ const char *name, STRLEN len, IV *iv_return) {
   /* Initially switch on the length of the name.  */
   /* When generated this function returned values for the list of names given
@@ -43,6 +114,13 @@ my @names = (qw(),
             {name=>"LD_ERROR", type=>"IV", macro=>"1"},
             {name=>"LD_FALLTHROUGH", type=>"IV", macro=>"1"},
             {name=>"LD_FLAG_NOT_FOUND", type=>"IV", macro=>"1"},
+            {name=>"LD_LOG_CRITICAL", type=>"IV", macro=>"1"},
+            {name=>"LD_LOG_DEBUG", type=>"IV", macro=>"1"},
+            {name=>"LD_LOG_ERROR", type=>"IV", macro=>"1"},
+            {name=>"LD_LOG_FATAL", type=>"IV", macro=>"1"},
+            {name=>"LD_LOG_INFO", type=>"IV", macro=>"1"},
+            {name=>"LD_LOG_TRACE", type=>"IV", macro=>"1"},
+            {name=>"LD_LOG_WARNING", type=>"IV", macro=>"1"},
             {name=>"LD_MALFORMED_FLAG", type=>"IV", macro=>"1"},
             {name=>"LD_NULL_KEY", type=>"IV", macro=>"1"},
             {name=>"LD_OFF", type=>"IV", macro=>"1"},
@@ -56,11 +134,11 @@ my @names = (qw(),
             {name=>"LD_WRONG_TYPE", type=>"IV", macro=>"1"});
 
 print constant_types(), "\n"; # macro defs
-foreach (C_constant ("LaunchDarkly", 'constant', 'IV', $types, undef, 3, @names) ) {
+foreach (C_constant ("LaunchDarkly::Server", 'constant', 'IV', $types, undef, 3, @names) ) {
     print $_, "\n"; # C constant subs
 }
 print "\n#### XS Section:\n";
-print XS_constant ("LaunchDarkly", $types);
+print XS_constant ("LaunchDarkly::Server", $types);
 __END__
    */
 
@@ -99,10 +177,28 @@ __END__
     }
     break;
   case 11:
-    if (memEQ(name, "LD_NULL_KEY", 11)) {
-      *iv_return = LD_NULL_KEY;
-      return PERL_constant_ISIV;
+    /* Names all of length 11.  */
+    /* LD_LOG_INFO LD_NULL_KEY */
+    /* Offset 9 gives the best switch position.  */
+    switch (name[9]) {
+    case 'E':
+      if (memEQ(name, "LD_NULL_KEY", 11)) {
+      /*                        ^        */
+        *iv_return = LD_NULL_KEY;
+        return PERL_constant_ISIV;
+      }
+      break;
+    case 'F':
+      if (memEQ(name, "LD_LOG_INFO", 11)) {
+      /*                        ^        */
+        *iv_return = LD_LOG_INFO;
+        return PERL_constant_ISIV;
+      }
+      break;
     }
+    break;
+  case 12:
+    return constant_12 (aTHX_ name, iv_return);
     break;
   case 13:
     /* Names all of length 13.  */
@@ -126,30 +222,27 @@ __END__
     }
     break;
   case 14:
-    /* Names all of length 14.  */
-    /* LD_FALLTHROUGH LD_STORE_ERROR */
-    /* Offset 5 gives the best switch position.  */
-    switch (name[5]) {
-    case 'L':
-      if (memEQ(name, "LD_FALLTHROUGH", 14)) {
-      /*                    ^               */
-        *iv_return = LD_FALLTHROUGH;
-        return PERL_constant_ISIV;
-      }
-      break;
-    case 'O':
-      if (memEQ(name, "LD_STORE_ERROR", 14)) {
-      /*                    ^               */
-        *iv_return = LD_STORE_ERROR;
-        return PERL_constant_ISIV;
-      }
-      break;
-    }
+    return constant_14 (aTHX_ name, iv_return);
     break;
   case 15:
-    if (memEQ(name, "LD_TARGET_MATCH", 15)) {
-      *iv_return = LD_TARGET_MATCH;
-      return PERL_constant_ISIV;
+    /* Names all of length 15.  */
+    /* LD_LOG_CRITICAL LD_TARGET_MATCH */
+    /* Offset 7 gives the best switch position.  */
+    switch (name[7]) {
+    case 'C':
+      if (memEQ(name, "LD_LOG_CRITICAL", 15)) {
+      /*                      ^              */
+        *iv_return = LD_LOG_CRITICAL;
+        return PERL_constant_ISIV;
+      }
+      break;
+    case 'E':
+      if (memEQ(name, "LD_TARGET_MATCH", 15)) {
+      /*                      ^              */
+        *iv_return = LD_TARGET_MATCH;
+        return PERL_constant_ISIV;
+      }
+      break;
     }
     break;
   case 17:
