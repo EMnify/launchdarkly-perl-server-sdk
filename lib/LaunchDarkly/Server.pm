@@ -14,7 +14,7 @@ our @ISA = qw(Exporter);
 # names by default without a very good reason. Use EXPORT_OK instead.
 # Do not simply export all your public functions/methods/constants.
 
-# This allows declaration	use LaunchDarkly ':all';
+# This allows declaration	use LaunchDarkly::Server ':all';
 # If you do not need this, moving things directly into @EXPORT or @EXPORT_OK
 # will save memory.
 our %EXPORT_TAGS = ( 'all' => [ qw(
@@ -23,6 +23,13 @@ our %EXPORT_TAGS = ( 'all' => [ qw(
 	LD_ERROR
 	LD_FALLTHROUGH
 	LD_FLAG_NOT_FOUND
+	LD_LOG_CRITICAL
+	LD_LOG_DEBUG
+	LD_LOG_ERROR
+	LD_LOG_FATAL
+	LD_LOG_INFO
+	LD_LOG_TRACE
+	LD_LOG_WARNING
 	LD_MALFORMED_FLAG
 	LD_NULL_KEY
 	LD_OFF
@@ -210,6 +217,13 @@ our @EXPORT = qw(
 	LD_ERROR
 	LD_FALLTHROUGH
 	LD_FLAG_NOT_FOUND
+	LD_LOG_CRITICAL
+	LD_LOG_DEBUG
+	LD_LOG_ERROR
+	LD_LOG_FATAL
+	LD_LOG_INFO
+	LD_LOG_TRACE
+	LD_LOG_WARNING
 	LD_MALFORMED_FLAG
 	LD_NULL_KEY
 	LD_OFF
@@ -261,11 +275,11 @@ __END__
 
 =head1 NAME
 
-LaunchDarkly - Perl SDK for LaunchDarkly
+LaunchDarkly::Server - Perl server side SDK for LaunchDarkly
 
 =head1 SYNOPSIS
 
-  use LaunchDarkly;
+  use LaunchDarkly::Server;
 
 =head1 DESCRIPTION
 
@@ -282,6 +296,13 @@ None by default.
   LD_ERROR
   LD_FALLTHROUGH
   LD_FLAG_NOT_FOUND
+  LD_LOG_CRITICAL
+  LD_LOG_DEBUG
+  LD_LOG_ERROR
+  LD_LOG_FATAL
+  LD_LOG_INFO
+  LD_LOG_TRACE
+  LD_LOG_WARNING
   LD_MALFORMED_FLAG
   LD_NULL_KEY
   LD_OFF
