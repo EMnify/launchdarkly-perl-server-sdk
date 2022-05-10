@@ -49,26 +49,28 @@ DESCRIPTION
       LD_WRONG_TYPE
 
   Exportable functions
+      void
+    LDSetLogLevel(int level)
       struct LDJSON *
     LDAllFlags(struct LDClient *const client, const struct LDUser *const user)
       struct LDAllFlagsState *
     LDAllFlagsState(struct LDClient *const client, const struct LDUser *const user, unsigned int options)
-      void LDAllFlagsStateFree(struct LDAllFlagsState *flags)
-      struct LDDetails* LDAllFlagsStateGetDetails(struct LDAllFlagsState* flags, const char* key)
-      struct LDJSON* LDAllFlagsStateGetValue(struct LDAllFlagsState* flags, const char* key)
-      char* LDAllFlagsStateSerializeJSON(struct LDAllFlagsState *flags)
-      struct LDJSON* LDAllFlagsStateToValuesMap(struct LDAllFlagsState* flags)
-      LDBoolean LDAllFlagsStateValid(struct LDAllFlagsState *flags)
+      void
+    LDAllFlagsStateFree(struct LDAllFlagsState *flags)
+      struct LDDetails*
+    LDAllFlagsStateGetDetails(struct LDAllFlagsState* flags, const char* key)
+      struct LDJSON*
+    LDAllFlagsStateGetValue(struct LDAllFlagsState* flags, const char* key)
+      char*
+    LDAllFlagsStateSerializeJSON(struct LDAllFlagsState *flags)
+      struct LDJSON*
+    LDAllFlagsStateToValuesMap(struct LDAllFlagsState* flags)
       LDBoolean
-    LDArrayAppend(struct LDJSON *const prefix, const struct LDJSON *const suffix)
+    LDAllFlagsStateValid(struct LDAllFlagsState *flags)
       LDBoolean
     LDArrayAppend(struct LDJSON *const prefix, const struct LDJSON *const suffix)
       struct LDJSON *
     LDArrayLookup(const struct LDJSON *const array, const unsigned int index)
-      struct LDJSON *
-    LDArrayLookup(const struct LDJSON *const array, const unsigned int index)
-      LDBoolean
-    LDArrayPush(struct LDJSON *const array, struct LDJSON *const item)
       LDBoolean
     LDArrayPush(struct LDJSON *const array, struct LDJSON *const item)
       LDBoolean
@@ -77,106 +79,57 @@ DESCRIPTION
         const struct LDUser *const user,
         const char *const key,
         const LDBoolean fallback,
-        struct LDDetails *const details)
+        bool getDetails)
       LDBoolean
     LDClientAlias(
         struct LDClient *const client,
         const struct LDUser *const currentUser,
         const struct LDUser *const previousUser)
       LDBoolean
-    LDClientAlias(
-        struct LDClient *const client,
-        const struct LDUser *const currentUser,
-        const struct LDUser *const previousUser)
-      LDBoolean LDClientClose(struct LDClient *const client)
-      LDBoolean LDClientClose(struct LDClient *const client)
-      LDBoolean LDClientFlush(struct LDClient *const client)
-      LDBoolean LDClientFlush(struct LDClient *const client)
+    LDClientClose(struct LDClient *const client)
+      LDBoolean
+    LDClientFlush(struct LDClient *const client)
       LDBoolean
     LDClientIdentify(
         struct LDClient *const client, const struct LDUser *const user)
-      LDBoolean
-    LDClientIdentify(
-        struct LDClient *const client, const struct LDUser *const user)
-      struct LDClient *
     LDClientInit(struct LDConfig *const config, const unsigned int maxwaitmilli)
-      struct LDClient *
-    LDClientInit(struct LDConfig *const config, const unsigned int maxwaitmilli)
-      LDBoolean LDClientIsInitialized(struct LDClient *const client)
-      LDBoolean LDClientIsInitialized(struct LDClient *const client)
-      LDBoolean LDClientIsOffline(struct LDClient *const client)
-      LDBoolean LDClientIsOffline(struct LDClient *const client)
       LDBoolean
+    LDClientIsInitialized(struct LDClient *const client)
+      LDBoolean
+    LDClientIsOffline(struct LDClient *const client)
     LDClientTrack(
         struct LDClient *const client,
         const char *const key,
         const struct LDUser *const user,
         struct LDJSON *const data)
-      LDBoolean
-    LDClientTrack(
-        struct LDClient *const client,
-        const char *const key,
-        const struct LDUser *const user,
-        struct LDJSON *const data)
-      LDBoolean
     LDClientTrackMetric(
         struct LDClient *const client,
         const char *const key,
         const struct LDUser *const user,
         struct LDJSON *const data,
         const double metric)
-      LDBoolean
-    LDClientTrackMetric(
-        struct LDClient *const client,
-        const char *const key,
-        const struct LDUser *const user,
-        struct LDJSON *const data,
-        const double metric)
-      struct LDJSON *
     LDCollectionDetachIter(
         struct LDJSON *const collection, struct LDJSON *const iter)
-      struct LDJSON *
-    LDCollectionDetachIter(
-        struct LDJSON *const collection, struct LDJSON *const iter)
-      unsigned int
-    LDCollectionGetSize(const struct LDJSON *const collection)
       unsigned int
     LDCollectionGetSize(const struct LDJSON *const collection)
       LDBoolean
     LDConfigAddPrivateAttribute(
         struct LDConfig *const config, const char *const attribute)
-      LDBoolean
-    LDConfigAddPrivateAttribute(
-        struct LDConfig *const config, const char *const attribute)
-      void LDConfigFree(struct LDConfig *const config)
-      void LDConfigFree(struct LDConfig *const config)
+      void
+    LDConfigFree(struct LDConfig *const config)
       void
     LDConfigInlineUsersInEvents(
         struct LDConfig *const config, const LDBoolean inlineUsersInEvents)
-      void
-    LDConfigInlineUsersInEvents(
-        struct LDConfig *const config, const LDBoolean inlineUsersInEvents)
-      struct LDConfig * LDConfigNew(const char *const key)
-      struct LDConfig * LDConfigNew(const char *const key)
-      void
-    LDConfigSetAllAttributesPrivate(
-        struct LDConfig *const config, const LDBoolean allAttributesPrivate)
+      struct LDConfig *
+    LDConfigNew(const char *const key)
       void
     LDConfigSetAllAttributesPrivate(
         struct LDConfig *const config, const LDBoolean allAttributesPrivate)
       LDBoolean
     LDConfigSetBaseURI(struct LDConfig *const config, const char *const baseURI)
-      LDBoolean
-    LDConfigSetBaseURI(struct LDConfig *const config, const char *const baseURI)
       void
     LDConfigSetEventsCapacity(
         struct LDConfig *const config, const unsigned int eventsCapacity)
-      void
-    LDConfigSetEventsCapacity(
-        struct LDConfig *const config, const unsigned int eventsCapacity)
-      LDBoolean
-    LDConfigSetEventsURI(
-        struct LDConfig *const config, const char *const eventsURI)
       LDBoolean
     LDConfigSetEventsURI(
         struct LDConfig *const config, const char *const eventsURI)
@@ -184,16 +137,7 @@ DESCRIPTION
     LDConfigSetFeatureStoreBackend(
         struct LDConfig *const config, struct LDStoreInterface *const backend)
       void
-    LDConfigSetFeatureStoreBackend(
-        struct LDConfig *const config, struct LDStoreInterface *const backend)
-      void
     LDConfigSetFeatureStoreBackendCacheTTL(
-        struct LDConfig *const config, const unsigned int milliseconds)
-      void
-    LDConfigSetFeatureStoreBackendCacheTTL(
-        struct LDConfig *const config, const unsigned int milliseconds)
-      void
-    LDConfigSetFlushInterval(
         struct LDConfig *const config, const unsigned int milliseconds)
       void
     LDConfigSetFlushInterval(
@@ -201,26 +145,13 @@ DESCRIPTION
       void
     LDConfigSetOffline(struct LDConfig *const config, const LDBoolean offline)
       void
-    LDConfigSetOffline(struct LDConfig *const config, const LDBoolean offline)
-      void
-    LDConfigSetPollInterval(
-        struct LDConfig *const config, const unsigned int milliseconds)
-      void
     LDConfigSetPollInterval(
         struct LDConfig *const config, const unsigned int milliseconds)
       void
     LDConfigSetSendEvents(
         struct LDConfig *const config, const LDBoolean sendEvents)
       void
-    LDConfigSetSendEvents(
-        struct LDConfig *const config, const LDBoolean sendEvents)
-      void
     LDConfigSetStream(struct LDConfig *const config, const LDBoolean stream)
-      void
-    LDConfigSetStream(struct LDConfig *const config, const LDBoolean stream)
-      LDBoolean
-    LDConfigSetStreamURI(
-        struct LDConfig *const config, const char *const streamURI)
       LDBoolean
     LDConfigSetStreamURI(
         struct LDConfig *const config, const char *const streamURI)
@@ -228,29 +159,13 @@ DESCRIPTION
     LDConfigSetTimeout(
         struct LDConfig *const config, const unsigned int milliseconds)
       void
-    LDConfigSetTimeout(
-        struct LDConfig *const config, const unsigned int milliseconds)
-      void
     LDConfigSetUseLDD(struct LDConfig *const config, const LDBoolean useLDD)
-      void
-    LDConfigSetUseLDD(struct LDConfig *const config, const LDBoolean useLDD)
-      void
-    LDConfigSetUserKeysCapacity(
-        struct LDConfig *const config, const unsigned int userKeysCapacity)
       void
     LDConfigSetUserKeysCapacity(
         struct LDConfig *const config, const unsigned int userKeysCapacity)
       void
     LDConfigSetUserKeysFlushInterval(
         struct LDConfig *const config, const unsigned int milliseconds)
-      void
-    LDConfigSetUserKeysFlushInterval(
-        struct LDConfig *const config, const unsigned int milliseconds)
-      LDBoolean
-    LDConfigSetWrapperInfo(
-        struct LDConfig *const config,
-        const char *const wrapperName,
-        const char *const wrapperVersion)
       LDBoolean
     LDConfigSetWrapperInfo(
         struct LDConfig *const config,
@@ -264,7 +179,7 @@ DESCRIPTION
         const struct LDUser *const user,
         const char *const key,
         const double fallback,
-        struct LDDetails *const details)
+        bool getDetails)
       const char *
     LDEvalErrorKindToString(const enum LDEvalErrorKind kind)
       const char * LDEvalReasonKindToString(const enum LDEvalReason kind)
@@ -282,67 +197,51 @@ DESCRIPTION
         const struct LDUser *const user,
         const char *const key,
         const int fallback,
-        struct LDDetails *const details)
-      const char * LDIterKey(const struct LDJSON *const iter)
-      const char * LDIterKey(const struct LDJSON *const iter)
-      struct LDJSON * LDIterNext(const struct LDJSON *const iter)
-      struct LDJSON * LDIterNext(const struct LDJSON *const iter)
+        bool getDetails)
+      const char *
+    LDIterKey(const struct LDJSON *const iter)
+      struct LDJSON *
+    LDIterNext(const struct LDJSON *const iter)
       LDBoolean
     LDJSONCompare(
         const struct LDJSON *const left, const struct LDJSON *const right)
-      LDBoolean
-    LDJSONCompare(
-        const struct LDJSON *const left, const struct LDJSON *const right)
-      struct LDJSON * LDJSONDeserialize(const char *const text)
-      struct LDJSON * LDJSONDeserialize(const char *const text)
-      struct LDJSON * LDJSONDuplicate(const struct LDJSON *const json)
-      struct LDJSON * LDJSONDuplicate(const struct LDJSON *const json)
-      void LDJSONFree(struct LDJSON *const json)
-      void LDJSONFree(struct LDJSON *const json)
-      LDJSONType LDJSONGetType(const struct LDJSON *const json)
-      LDJSONType LDJSONGetType(const struct LDJSON *const json)
-      char * LDJSONSerialize(const struct LDJSON *const json)
-      char * LDJSONSerialize(const struct LDJSON *const json)
+      struct LDJSON *
+    LDJSONDeserialize(const char *const text)
+      struct LDJSON *
+    LDJSONDuplicate(const struct LDJSON *const json)
+      void
+    LDJSONFree(struct LDJSON *const json)
+      LDJSONType
+    LDJSONGetType(const struct LDJSON *const json)
+      char *
+    LDJSONSerialize(const struct LDJSON *const json)
       struct LDJSON *
     LDJSONVariation(
         struct LDClient *const client,
         const struct LDUser *const user,
         const char *const key,
         const struct LDJSON *const fallback,
-        struct LDDetails *const details)
-      struct LDJSON * LDNewArray(void)
-      struct LDJSON * LDNewArray(void)
-      struct LDJSON * LDNewBool(const LDBoolean boolean)
-      struct LDJSON * LDNewBool(const LDBoolean boolean)
-      struct LDJSON * LDNewNull(void)
-      struct LDJSON * LDNewNull(void)
-      struct LDJSON * LDNewNumber(const double number)
-      struct LDJSON * LDNewNumber(const double number)
-      struct LDJSON * LDNewObject(void)
-      struct LDJSON * LDNewObject(void)
-      struct LDJSON * LDNewText(const char *const text)
-      struct LDJSON * LDNewText(const char *const text)
-      void
-    LDObjectDeleteKey(struct LDJSON *const object, const char *const key)
+        bool getDetails)
+      struct LDJSON *
+    LDNewArray(void)
+      struct LDJSON *
+    LDNewBool(const LDBoolean boolean)
+      struct LDJSON *
+    LDNewNull(void)
+      struct LDJSON *
+    LDNewNumber(const double number)
+      struct LDJSON *
+    LDNewObject(void)
+      struct LDJSON *
+    LDNewText(const char *const text)
       void
     LDObjectDeleteKey(struct LDJSON *const object, const char *const key)
       struct LDJSON *
     LDObjectDetachKey(struct LDJSON *const object, const char *const key)
       struct LDJSON *
-    LDObjectDetachKey(struct LDJSON *const object, const char *const key)
-      struct LDJSON *
-    LDObjectLookup(const struct LDJSON *const object, const char *const key)
-      struct LDJSON *
     LDObjectLookup(const struct LDJSON *const object, const char *const key)
       LDBoolean
     LDObjectMerge(struct LDJSON *const to, const struct LDJSON *const from)
-      LDBoolean
-    LDObjectMerge(struct LDJSON *const to, const struct LDJSON *const from)
-      LDBoolean
-    LDObjectSetKey(
-        struct LDJSON *const object,
-        const char *const key,
-        struct LDJSON *const item)
       LDBoolean
     LDObjectSetKey(
         struct LDJSON *const object,
@@ -352,75 +251,44 @@ DESCRIPTION
     LDReasonToJSON(const struct LDDetails *const details)
       LDBoolean
     LDSetNumber(struct LDJSON *const node, const double number)
-      LDBoolean
-    LDSetNumber(struct LDJSON *const node, const double number)
       char *
     LDStringVariation(
         struct LDClient *const client,
         const struct LDUser *const user,
         const char *const key,
         const char *const fallback,
-        struct LDDetails *const details)
+        bool getDetails)
       LDBoolean
     LDUserAddPrivateAttribute(
         struct LDUser *const user, const char *const attribute)
-      LDBoolean
-    LDUserAddPrivateAttribute(
-        struct LDUser *const user, const char *const attribute)
-      void LDUserFree(struct LDUser *const user)
-      void LDUserFree(struct LDUser *const user)
-      struct LDUser * LDUserNew(const char *const key)
-      struct LDUser * LDUserNew(const char *const key)
       void
-    LDUserSetAnonymous(struct LDUser *const user, const LDBoolean anon)
+    LDUserFree(struct LDUser *const user)
+      struct LDUser *
+    LDUserNew(const char *const key)
       void
     LDUserSetAnonymous(struct LDUser *const user, const LDBoolean anon)
       LDBoolean
     LDUserSetAvatar(struct LDUser *const user, const char *const avatar)
       LDBoolean
-    LDUserSetAvatar(struct LDUser *const user, const char *const avatar)
-      LDBoolean
-    LDUserSetCountry(struct LDUser *const user, const char *const country)
-      LDBoolean
     LDUserSetCountry(struct LDUser *const user, const char *const country)
       void
     LDUserSetCustom(struct LDUser *const user, struct LDJSON *const custom)
-      void
-    LDUserSetCustom(struct LDUser *const user, struct LDJSON *const custom)
-      void
-    LDUserSetCustomAttributesJSON(
-        struct LDUser *const user, struct LDJSON *const custom)
       void
     LDUserSetCustomAttributesJSON(
         struct LDUser *const user, struct LDJSON *const custom)
       LDBoolean
     LDUserSetEmail(struct LDUser *const user, const char *const email)
       LDBoolean
-    LDUserSetEmail(struct LDUser *const user, const char *const email)
-      LDBoolean
     LDUserSetFirstName(struct LDUser *const user, const char *const firstName)
-      LDBoolean
-    LDUserSetFirstName(struct LDUser *const user, const char *const firstName)
-      LDBoolean
-    LDUserSetIP(struct LDUser *const user, const char *const ip)
       LDBoolean
     LDUserSetIP(struct LDUser *const user, const char *const ip)
       LDBoolean
     LDUserSetLastName(struct LDUser *const user, const char *const lastName)
       LDBoolean
-    LDUserSetLastName(struct LDUser *const user, const char *const lastName)
-      LDBoolean
-    LDUserSetName(struct LDUser *const user, const char *const name)
-      LDBoolean
     LDUserSetName(struct LDUser *const user, const char *const name)
       void
     LDUserSetPrivateAttributes(
         struct LDUser *const user, struct LDJSON *const privateAttributes)
-      void
-    LDUserSetPrivateAttributes(
-        struct LDUser *const user, struct LDJSON *const privateAttributes)
-      LDBoolean
-    LDUserSetSecondary(struct LDUser *const user, const char *const secondary)
       LDBoolean
     LDUserSetSecondary(struct LDUser *const user, const char *const secondary)
 
