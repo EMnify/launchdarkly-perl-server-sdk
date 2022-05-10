@@ -281,6 +281,19 @@ LaunchDarkly::Server - Perl server side SDK for LaunchDarkly
 
   use LaunchDarkly::Server;
 
+  my $config = LaunchDarkly::Server::LDConfigNew("my-sdk-key");
+  my $timeout = 10000;
+  my $debug = 0;
+  my $default = 0;
+  my $client = LaunchDarkly::Server::LDClientInit($config, $timeout);
+
+  my $user = LaunchDarkly::Server::LDUserNew("user123");
+  my result = LaunchDarkly::Server::LDBoolVariation($client, $user, "my-very-new-feature", $default, $debug);
+  print LaunchDarkly::Server::LDDetailsToString() unless not $debug;
+  LaunchDarkly::Server::LDUserFree($user);
+
+  LaunchDarkly::Server::LDClientClose($client);
+
 =head1 DESCRIPTION
 
 See https://docs.launchdarkly.com/sdk/server-side/c-c--
