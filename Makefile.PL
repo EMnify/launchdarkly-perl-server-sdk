@@ -8,9 +8,6 @@ WriteMakefile(
     PREREQ_PM         => {}, # e.g., Module::Name => 1.1
     ABSTRACT_FROM     => 'lib/LaunchDarkly/Server.pm', # retrieve abstract from module
     AUTHOR            => 'Miklos Tirpak <miklos.tirpak@emnify.com>',
-    #LICENSE           => 'perl',
-    #Value must be from legacy list of licenses here
-    #https://metacpan.org/pod/Module::Build::API
     LIBS              => ['-lpcre -lcurl -lldserverapi'],
 );
 if  (eval {require ExtUtils::Constant; 1}) {
