@@ -1,11 +1,13 @@
 Changes
+cpanfile
+fallback/const-c.inc
+fallback/const-xs.inc
+lib/LaunchDarkly/Server.pm
+LICENSE
 Makefile.PL
 MANIFEST
 ppport.h
 README
 Server.xs
-typemap
 t/00_basic.t
-fallback/const-c.inc
-fallback/const-xs.inc
-lib/LaunchDarkly/Server.pm
+typemap
