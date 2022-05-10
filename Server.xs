@@ -33,6 +33,7 @@ START_MY_CXT
     RETVAL = func(client, user, key, fallback, details); \
 
 MODULE = LaunchDarkly::Server		PACKAGE = LaunchDarkly::Server
+PROTOTYPES: ENABLE
 
 INCLUDE: const-xs.inc
 
