@@ -1,6 +1,6 @@
 package LaunchDarkly::Server;
 
-use v5.26.1;
+use v5.18.2;
 use strict;
 use warnings;
 use Carp;
